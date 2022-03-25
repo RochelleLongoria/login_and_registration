@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<!-- ----------------Login--------->
+<body>
+    <div class="main">
+        <div class="login_container test">
+            <div class="login_box test">
+                <h1>Registration</h1>
+                    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                            {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                <form action="/login/registration/process" method="post">
+                    <div class="login_form">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name">
+                    </div>
+                    <div class="login_form">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name">
+                    </div>
+                    <div class="login_form">
+                        <label for="email">E-mail:</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="login_form">
+                        <label for="password">Password:</label>
+                        <input type="text" name="password">
+                    </div>
+                    <div class="login_form">
+                        <label for="password_confirmation">Confirm Password:</label>
+                        <input type="text" name="password_confirmation">
+                    </div>
+                    <button class="submit">Register</button>
+                </form>
+            </div>
+            <!-- ---------Login------->
+        <div class="registration_container test">
+            <div class="registration_box test">
+                <div class="registration_display">
+                    <h1>Login</h1>
+                    <form action="/login/process" method="post">
+                        <div class="login_form">
+                            <label for="email">E-mail:</label>
+                            <input type="email" name="email">
+                        </div>
+                        <div class="login_form">
+                            <label for="password">Password:</label>
+                            <input type="password" name="password">
+                        </div>
+                        <button class="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
